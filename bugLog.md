@@ -11,20 +11,20 @@ Brief description: The setOS() method always sets the OS to "none".
 Failed unit test: testSetOS()
 
 ## Bug 4
-Brief description:  
-Failed unit test: 
+Brief description: The buy() method only buys one specific premade computer.
+Failed unit test: testBuy()
 
 ## Bug 5
-Brief description:  
-Failed unit test: 
+Brief description: The refurbish() method sets the price of computers under 2012 but above 2000 as 2500 instead of 250. 
+Failed unit test: testRefurbishMidComputer()
 
 ## Bug 6
-Brief description:  
-Failed unit test: 
+Brief description: The refurbish() method does not work because it calls setOS() which only sets the OS to "None" instead of the intended OS.
+Failed unit test: testRefurbishNewOS
 
 ## Bug 7
-Brief description:  
-Failed unit test: 
+Brief description:  Print inventory crashes because of an index out of bounds exception
+Failed unit test: testPrintInventory()
 
 ## Bug 8
 Brief description:  
