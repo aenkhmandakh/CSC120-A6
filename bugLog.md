@@ -20,7 +20,7 @@ Failed unit test: testRefurbishMidComputer()
 
 ## Bug 6
 Brief description: The refurbish() method does not work because it calls setOS() which only sets the OS to "None" instead of the intended OS.
-Failed unit test: testRefurbishNewOS
+Failed unit test: testRefurbishNewOS()
 
 ## Bug 7
 Brief description:  Print inventory crashes because of an index out of bounds exception
