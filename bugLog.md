@@ -1,14 +1,14 @@
 ## Bug 1
-Brief description:  
-Failed unit test: 
+Brief description: The constructor always assigns memory as 16.  
+Failed unit test: testConstructorMemory()
 
 ## Bug 2
-Brief description:  
-Failed unit test: 
+Brief description: The constructor always assigns price as 0.
+Failed unit test: testConstructorPrice()
 
 ## Bug 3
-Brief description:  
-Failed unit test: 
+Brief description: The setOS() method always sets the OS to "none".
+Failed unit test: testSetOS()
 
 ## Bug 4
 Brief description:  
