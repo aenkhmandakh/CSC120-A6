@@ -19,21 +19,22 @@ Brief description: The refurbish() method sets the price of computers under 2012
 Failed unit test: testRefurbishMidComputer()
 
 ## Bug 6
-Brief description: The refurbish() method does not work because it calls setOS() which only sets the OS to "None" instead of the intended OS.
-Failed unit test: testRefurbishNewOS()
+Brief description: The buy() promises to throw a RuntimeException if computer is already in inventory but does not actually do it.
+Faild unit test: testBuyInInv
+
 
 ## Bug 7
 Brief description:  Print inventory crashes because of an index out of bounds exception
 Failed unit test: testPrintInventory()
 
 ## Bug 8
-Brief description:  
-Failed unit test: 
+Brief description:  The sell() method promises to throw a RuntimeException if computer is not in inventory, but does not actually do it.
+Failed unit test: testSellNotInInv()
 
 ## Bug 9
-Brief description:  
-Failed unit test: 
+Brief description:  The constructor for ResaleShop adds a computer into the inventory as it initializes, when it should be empty from the start
+Failed unit test: testResaleShopConstructor()
 
 ## Bug 10
-Brief description:  
-Failed unit test: 
+Brief description: The refurbish() throws a runtime exception after buying something to inventory
+Failed unit test: testRefurbishAfterBuy()

@@ -22,6 +22,15 @@ I tested refurbish's new OS to see if it updates by comparing the expected to th
 
 I tested printInventory to see if it crashed by comparing boolean values.
 
+I tested buy() method to see if it throw a a RuntimeException if computer is in the inventory, but it does not actually do it.
+
+I tested sell() method to see if it throw a a RuntimeException if computer is not in the inventory, but it does not actually do it.
+
+I added ResaleShop constructor to see if it starts with a clean inventory.
+
+I tested refurbish() to see if it throws a runtime exception after refurbishing something bought to inventory.
+
+
 
 
 

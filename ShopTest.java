@@ -95,6 +95,18 @@ int expectedPrice;
     public void testConstructorPrice(){
         assertEquals(expectedPrice, testComputer.price);
     }   
+
+        /***
+     * testing that constructor properly sets up resaleShop
+     */
+    @Test
+    public void testResaleShopConstructor(){
+        ResaleShop newShop = new ResaleShop();
+        assertEquals(0, newShop.inventory.size());
+    }   
+
+
+
     /***
      * testing it properly sets price by comparing to expected
      */
@@ -166,6 +178,22 @@ int expectedPrice;
         assertEquals(true, testShop.inventory.isEmpty());
     }
 
+     /***
+     * testing it properly throws runtime exception when you try to sell something not in inventory
+     */
+    @Test
+    public void testSellNotInInv(){
+        testShop.inventory.clear();
+        boolean exceptionThrown=false;
+        try{
+            testShop.sell(testComputer);
+        } catch (RuntimeException e){
+            exceptionThrown=true;
+        }
+        testShop.sell(testComputer);
+        assertEquals(true,exceptionThrown);
+    }
+
     /***
      * testing it properly refurbishes computer before 2000
      */
@@ -189,17 +217,18 @@ int expectedPrice;
 
 
     }
+
+  
+
     /***
      * testing it properly refurbishes computer before 2018
      */
     @Test 
     public void testRefurbishNewerComputer(){
-        Computer newerComputer=new Computer("Good Computer", "Good Processor", 128, 16, "Old OS", 2017, 1000);
+        Computer newerComputer=new Computer("Good Computer", "Good Processor", 128, 16, "Old OS", 2016, 1000);
         testShop.inventory.add(newerComputer);
         testShop.refurbish(newerComputer, "NewestOS");
         assertEquals(550, newerComputer.price);
-
-
     }
 
     /***
@@ -217,10 +246,47 @@ int expectedPrice;
     @Test 
     public void testRefurbishNewOS(){
         testShop.inventory.add(testComputer);
-        testShop.refurbish(testComputer, "NewestOS");
+        testComputer.operatingSystem="NewestOS";
+        testShop.refurbish(testComputer, "None");
         assertEquals("NewestOS", testComputer.operatingSystem);
     }  
 
+    /***
+     * testing if buy() properly throws RunTime Exception when the computer is already in inventory
+     */
+    @Test 
+    public void testBuyInInv(){
+
+        testShop.inventory.clear();
+        testShop.inventory.add(testComputer);
+        boolean exceptionThrown =false;
+        try{
+            testShop.buy(testComputer);
+        }catch (RuntimeException e){
+            exceptionThrown= true;
+        }
+        
+        assertEquals(true, exceptionThrown);
+    }  
+
+
+    /***
+     * testing if refurbish() throws a runtime exception after refurbishing something bought to inventory
+     */
+    @Test 
+    public void testRefurbishAfterBuy(){
+
+        testShop.inventory.clear();
+        testShop.buy(testComputer);
+        boolean exceptionThrown =false;
+        try{
+            testShop.refurbish(testComputer, "NewestOS");
+        }catch (RuntimeException e){
+            exceptionThrown= true;
+        }
+        
+        assertEquals(false, exceptionThrown);
+    }  
 
     /***
      * testing if it properly prints inventory by comparing booleans if it does
@@ -235,6 +301,8 @@ int expectedPrice;
         }
         assertEquals(false, crashTest);
     }
+
+
 
 
 
